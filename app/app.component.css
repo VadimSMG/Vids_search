@@ -1,0 +1,25 @@
+#title{
+    text-align: center;
+}
+#subtitle{
+    text-align: center;
+}
+#search-btn{
+    margin-right: 20em;
+}
+.card{
+    width: 30vw;
+}
+.form-control{
+    margin-left: 20em;
+}
+#logo{
+    display: grid;
+    margin: auto;
+    height: 200px;
+}
+#search-form{
+    display: flex;
+    justify-content: center;
+
+}

@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css">
+<div>
+    <h1 id="title">Rat Search</h1>
+    <img id="logo" src="https://cdn.onlinewebfonts.com/svg/img_35603.png">
+    <h5 id="subtitle">Place the Rat to hunt videos</h5>
+    <!-- Search input -->
+    <div id="search-form">
+        <label for="usrInput"></label>
+        <input #usrInput type="text" class="form-control" placeholder="YouTube search..." (keydown.enter)="getData()"
+            required>
+        <div id="search-btn">
+            <button class="btn btn-primary btn-sm" (click)="getData()">Search it!</button>
+        </div>
+    </div>
+    <br>
+    <!-- Search botton -->
+    <!-- <div id="search-btn">
+        <button class="btn btn-primary btn-sm" (click)="getData()">Search it!</button>
+    </div>
+    <br><br><br> -->
+    <!-- Content container -->
+    <div class="card" *ngFor="let vid of vidsSearch">
+        <div class="card-body">
+            <h4 class="card-title">{{vid.snippet.title}}</h4>
+            <a target="_blank" href="www.youtube.com/c/{{vid.id.channelId}}">
+                <img class="img-thumbnail" src="{{vid.snippet.thumbnails.medium.url}}" />
+            </a>
+            <br><br>
+            <p class="card-text">{{vid.snippet.description}}</p>
+        </div>
+    </div>
+    <!-- Filter drop menu -->
+</div>
