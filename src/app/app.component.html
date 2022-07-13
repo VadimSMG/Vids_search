@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css">
+<div class="logo">
+    <h1 id="title">Rat Search</h1>
+<div class="logo-img">
+    <div class="rat-eye" *ngIf="isLoading">
+        <svg>
+            <circle 
+            r="7"
+            cx="50"
+            cy="50"
+            fill="_blank">   
+            </circle>
+        </svg>
+    </div>
+    <img id="logo" src="../assets/img/rat_logo.png">
+</div>
+    <div *ngIf="isLoading">
+        <h5 id="subtitle">Now Rat hunting videos...</h5> </div>
+    <div *ngIf="!isLoading">
+        <h5 id="subtitle">Place the Rat to hunt videos</h5>
+    </div>
+    <!-- Search input -->
+    <div id="search-form" role="search">
+        <label for="usrInput"><img class="search-ico" [src]="imgPath" width="45px" alt="search-ico"></label>
+        <input #usrInput type="text" class="form-control" placeholder="YouTube search..." (keydown.enter)="getData() "
+            required>
+        <div id="search-btn">
+            <button class="btn btn-primary btn-sm" (click)="getData()">Search it!</button>
+        </div>
+    </div>
+    <br>
+    <!-- Filter menu -->
+    <div id="btnBlock" class="col-sm-12">
+        <button type="button" class="btn btn-outline-success" id="channelSort"
+            (click)="sortBtn('channel')">Author</button>
+        <button type="button" class="btn btn-outline-info" id="dateSort" (click)="sortBtn('date')">Date</button>
+        <button type="button" class="btn btn-outline-secondary" id="sortClr" (click)="sortBtn('')">Reset filter</button>
+    </div>
+    <!-- Content area -->
+    <div class="row">
+        <div class="card" class="col-sm-1 col-md-4 col-bg-2" *ngFor="let vid of vidsSearch | filter: filterText">
+            <a target="_blank" href="https://www.youtube.com/watch?v={{vid.id.videoId}}">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h4 class="card-title">{{vid.snippet.title}}</h4>
+                    </div>
+                    <div class="img-content">
+                        <img class="img-thumbnail" src="{{vid.snippet.thumbnails.medium.url}}" />
+                    </div>
+                    <div class="card-text">{{vid.snippet.description}}</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
